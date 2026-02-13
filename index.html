@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>P2 Ultimate</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="yt-box">
+        <div id="yt-frame-ui">
+            <iframe id="conv-iframe" src="https://ezconv.cc/" scrolling="no"></iframe>
+        </div>
+    </div>
+
+    <div class="mode-toggle">
+        <button id="btn-mp3" class="mode-btn active" onclick="setMode('mp3')">
+            <i class="fas fa-music"></i> MP3
+        </button>
+        <button id="btn-radio" class="mode-btn" onclick="setMode('radio')">
+            <i class="fas fa-broadcast-tower"></i> RÁDIO
+        </button>
+    </div>
+
+    <section class="player-section">
+        <div class="cd-disk" id="cd-disk">
+            <img id="cd-cover" src="https://cdn-icons-png.flaticon.com/512/26/26433.png">
+        </div>
+
+        <div class="track-info">
+            <span id="track-title">P2 Ultimate</span>
+            <small id="track-sub">Selecione uma música ou rádio</small>
+        </div>
+
+        <div class="progress-container">
+            <span id="time-current">0:00</span>
+            <div class="progress-bar" id="progress-bar-click">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <span id="time-total">0:00</span>
+        </div>
+
+        <div class="controls">
+            <button class="btn-ctrl" onclick="handlePrev()"><i class="fas fa-step-backward"></i></button>
+            <button class="btn-ctrl btn-play" id="play-btn" onclick="togglePlay()"><i class="fas fa-play"></i></button>
+            <button class="btn-ctrl" onclick="handleNext()"><i class="fas fa-step-forward"></i></button>
+        </div>
+
+        <div class="volume-container">
+            <i class="fas fa-volume-down"></i>
+            <input type="range" class="volume-slider" id="volume-slider" min="0" max="1" step="0.1" value="1">
+            <i class="fas fa-volume-up"></i>
+        </div>
+
+        <input type="file" id="mp3-input" accept="audio/*" multiple style="display:none">
+    </section>
+</div>
+
+<audio id="main-audio"></audio>
+<script src="script.js"></script>
+</body>
+</html>
