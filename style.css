@@ -1,0 +1,189 @@
+/* --- CONFIGURAÇÃO BASE (ESTILO YOUTUBE) --- */
+:root {
+    --primary-bg: #0f0f0f;
+    --card-bg: #1a1a1a;
+    --accent: #ff375f;
+    --text: #ffffff;
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body { 
+    font-family: 'Roboto', sans-serif; 
+    background: var(--primary-bg); 
+    color: var(--text); 
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container { 
+    width: 100%;
+    max-width: 400px; /* Mantém o player compacto e centralizado */
+}
+
+/* --- CONVERSOR (FIXO E BLINDADO) --- */
+.yt-box { 
+    background: #ffffff; 
+    border-radius: 15px; 
+    margin-bottom: 20px; 
+    height: 150px; /* Altura da caixa branca */
+    width: 100%;
+    overflow: hidden; /* IMPORTANTE: Não deixa o zoom vazar para fora */
+    position: relative;
+    border: 2px solid #333;
+}
+
+#conv-iframe { 
+    width: 160%; /* Site interno maior para forçar layout de desktop */
+    height: 800px; 
+    border: none; 
+    position: absolute; 
+    
+    /* Centralização do botão Convert */
+    top: -155px; 
+    left: -30%; 
+    
+    /* Zoom reduzido sem afetar o resto da página */
+    transform: scale(0.62); 
+    transform-origin: top center;
+}
+
+/* --- BOTÕES MP3/RADIO (ESTILO FOTO) --- */
+.mode-toggle { 
+    display: flex; 
+    gap: 10px; 
+    margin-bottom: 20px; 
+    width: 100%;
+}
+
+.mode-btn { 
+    flex: 1; 
+    padding: 15px; 
+    border-radius: 12px; 
+    border: none; 
+    background: #252525; 
+    color: white; 
+    font-weight: bold; 
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.mode-btn.active { 
+    background: var(--accent); 
+}
+
+/* --- MEDIA PLAYER --- */
+.player-section { 
+    text-align: center; 
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 20px;
+    width: 100%;
+}
+
+.cd-disk { 
+    width: 200px; 
+    height: 200px; 
+    border-radius: 50%; 
+    margin: 0 auto 15px;
+    border: 10px solid #111; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    overflow: hidden;
+}
+
+#cd-cover { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+}
+
+.playing { 
+    animation: spin 12s linear infinite; 
+}
+
+@keyframes spin { 
+    to { transform: rotate(360deg); } 
+}
+
+.track-info b { 
+    display: block; 
+    font-size: 1.1rem; 
+    margin-bottom: 5px;
+}
+
+.track-info small { 
+    color: #888; 
+}
+
+/* --- PROGRESSO E VOLUME --- */
+.progress-container { 
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+    margin: 15px 0; 
+    font-size: 0.75rem;
+}
+
+.progress-bar { 
+    flex: 1; 
+    height: 4px; 
+    background: #333; 
+    border-radius: 2px; 
+    cursor: pointer; 
+}
+
+.progress-fill { 
+    width: 0%; 
+    height: 100%; 
+    background: var(--accent); 
+}
+
+.controls { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 25px; 
+    margin: 15px 0;
+}
+
+.btn-ctrl { 
+    background: none; 
+    border: none; 
+    color: white; 
+    font-size: 1.4rem; 
+    cursor: pointer; 
+}
+
+.btn-play { 
+    background: white; 
+    color: black; 
+    width: 55px; 
+    height: 55px; 
+    border-radius: 50%; 
+    font-size: 1.5rem; 
+}
+
+.volume-container { 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 10px; 
+    margin-top: 15px; 
+}
+
+.volume-slider { 
+    accent-color: var(--accent); 
+    width: 100px; 
+}
+
+.hidden { display: none; }
